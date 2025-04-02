@@ -1,19 +1,19 @@
 const { Router } = require('express');
-const TarefasController = require('./controllers/TarefasController');
+const EstacionamentoController = require('./controllers/EstacionamentoController');
 
-const tarefasRoutes = new Router();
+const estacionamentoRoutes = new Router();
 
-tarefasRoutes.get('/', TarefasController.index); 
-tarefasRoutes.post('/cadastrar', TarefasController.create);
-tarefasRoutes.delete('/deletar/:id', TarefasController.delete);
+estacionamentoRoutes.get('/',               EstacionamentoController.index); 
+estacionamentoRoutes.post('/cadastrar',     EstacionamentoController.create);
+estacionamentoRoutes.delete('/deletar/:id', EstacionamentoController.delete);
 
 const routes = new Router();
 // Associando cada roteador à rota principal
-routes.use('/tarefas', tarefasRoutes);
+routes.use('/estacionamento', estacionamentoRoutes);
 
 // Página inicial
 routes.get('/', (req, res) => {
-    res.redirect('/tarefas/');
+    res.redirect('/estacionamento/');
 });
 
 module.exports = routes;

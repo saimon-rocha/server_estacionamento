@@ -1,20 +1,39 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('tarefas', {
-      id: {
+    await queryInterface.createTable('estacionamento', {
+      id_estacionamento: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      title: {
-        type: Sequelize.STRING,
+      placa: {
+        type: Sequelize.STRING(7), // Definição adequada para a placa
         allowNull: false,
       },
-      description: {
-        type: Sequelize.STRING,
+      dt_entrada: {
+        type: Sequelize.DATEONLY, // Apenas a data sem hora
         allowNull: false,
-        unique: true,
+      },
+      hr_entrada: {
+        type: Sequelize.TIME,
+        allowNull: false,
+      },
+      dt_saida: {
+        type: Sequelize.DATEONLY,
+        allowNull: true, // Permitido ser nulo no momento da entrada
+      },
+      hr_saida: {
+        type: Sequelize.TIME,
+        allowNull: true, // Permitido ser nulo no momento da entrada
+      },
+      vl_estacionamento: {
+        type: Sequelize.DECIMAL(10,2), // Corrigido o formato
+        allowNull: false,
+      },
+      vl_total: {
+        type: Sequelize.DECIMAL(10,2), // Corrigido o formato
+        allowNull: false,
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -23,11 +42,11 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-      },
+      }
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('estacionamento'); // Corrigido o nome da tabela
   }
 };

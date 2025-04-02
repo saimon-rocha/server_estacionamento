@@ -23,23 +23,23 @@ Estacionamento.init(
       allowNull: false,
     },
     dt_saida: {
-      type: Datatypes.DATEONLY,
+      type: DataTypes.DATEONLY,
     },
     hr_saida: {
       type: DataTypes.TIME,
     },
     vl_estacionamento: {
-      type: Datatypes.DECIMAL(10.2),
+      type: DataTypes.DECIMAL(10.2),
     },
     vl_total: {
-      type: Datatypes.DECIMAL(10.2),
+      type: DataTypes.DECIMAL(10.2),
     },
   },
   {
     sequelize,            // Conexão com o banco de dados
     modelName: 'Estacionamento', // Nome do modelo
     tableName: 'estacionamento', // Nome da tabela no banco de dados
-    timestamps: false,     // Adiciona os campos 'createdAt' e 'updatedAt'
+    timestamps: true,     // Adiciona os campos 'createdAt' e 'updatedAt'
   }
 );
 

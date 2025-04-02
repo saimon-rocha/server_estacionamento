@@ -1,12 +1,12 @@
-// src/controllers/TarefasController.js
-const Tarefas = require('../models/Tarefas'); // Importa o modelo de Tarefas
+// src/controllers/EstacionamentoController.js
+const Estacionamento = require('../models/Estacionamento'); // Importa o modelo de Estacionamento
 
-class TarefasController {
-    // Método para listar todas as tarefas
+class EstacionamentoController {
+    // Método para listar
     static async index(req, res) {
         try {
-            const tarefas = await Tarefas.findAll();
-            return res.status(200).json(tarefas.length > 0 ? tarefas : []); // Retorna array vazio se não houver tarefas
+            const estacionamento = await Estacionamento.findAll();
+            return res.status(200).json(estacionamento.length > 0 ? estacionamento : []); // Retorna array vazio se não houver
         } catch (error) {
             console.error('Erro ao buscar tarefas:', error.message);
             return res.status(500).json({ error: "Erro ao buscar tarefas" }); // Retorna um objeto de erro
@@ -55,4 +55,4 @@ class TarefasController {
     }
 }
 
-module.exports = TarefasController;  // Exporta o controlador para ser utilizado nas rotas
+module.exports = EstacionamentoController;  // Exporta o controlador para ser utilizado nas rotas

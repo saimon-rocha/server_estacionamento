@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const dbConfig = require('../config/db'); // Caminho para o arquivo db.js
 
 const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
-  // DATABASE_URL: dbConfig.DATABASE_URL,
+  DATABASE_URL: dbConfig.DATABASE_URL,
   host: dbConfig.host,
   port: dbConfig.port,
   dialect: dbConfig.dialect,
