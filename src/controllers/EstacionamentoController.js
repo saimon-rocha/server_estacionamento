@@ -34,4 +34,4 @@ class EstacionamentoController {
     }
 }
 
-module.exports = EstacionamentoController;  // Exporta o controlador para ser utilizado nas rotas
+module.exports = new EstacionamentoController;  // Exporta o controlador para ser utilizado nas rotas

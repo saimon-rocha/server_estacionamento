@@ -3,10 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const routes = require('./routes'); // Importa as rotas
 const database = require('./database'); // Conexão com o banco de dados
-
-
 const app = express();
-const port = 3000;
 
 // Middleware para analisar o corpo da requisição em formato JSON
 app.use(express.json());
