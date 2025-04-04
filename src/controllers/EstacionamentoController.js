@@ -3,7 +3,7 @@ const Estacionamento = require('../models/Estacionamento'); // Importa o modelo 
 
 class EstacionamentoController {
     // Método para listar
-    static async index(req, res) {
+    async index(req, res) {
         try {
             const estacionamento = await Estacionamento.findAll();
             return res.status(200).json(estacionamento.length > 0 ? estacionamento : []); // Retorna array vazio se não houver
@@ -14,7 +14,7 @@ class EstacionamentoController {
     }
 
     // Método para criar
-    static async create(req, res) {
+    async create(req, res) {
         const { placa, dt_entrada, hr_entrada, dt_saida, hr_saida, saida, vl_estacionamento, vl_total } = req.body;  // Desestruturação do corpo da requisição
         try {
             // Criando nova no banco de dados
@@ -30,7 +30,7 @@ class EstacionamentoController {
     }
     
     // Método para saída
-    static async saida(req, res) {
+    async saida(req, res) {
     }
 }
 
